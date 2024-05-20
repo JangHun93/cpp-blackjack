@@ -37,7 +37,6 @@ class Player
 
     string GetCards()
     {
-        // cout << this->Cards[0] << "," << this->Cards[1] << endl;
         return this->Cards[0] + ", " + this->Cards[1];
     }
 };
@@ -48,7 +47,7 @@ void Func_Get_Card(Player *player)
     for (int i = 0; i < 2; i++)
     {
 
-        int randomNumber = (rand() % 13) + 1;
+        int randomNumber = (rand() % 12) + 1;
         string card;
 
         // 접수 합산
