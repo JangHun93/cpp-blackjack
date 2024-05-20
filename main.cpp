@@ -76,6 +76,7 @@ void Func_Get_Card(Player *player)
     }
 }
 
+// 블랙잭 승자 계산 함수
 string Func_Calc_BlackJack_Winner(Player *player1, Player *player2)
 {
     int firstPlayerScore = player1->GetScore();
@@ -106,10 +107,12 @@ string Func_Calc_BlackJack_Winner(Player *player1, Player *player2)
     // 한쪽만 21 넘는 경우
     else if (firstPlayerScore > 21 || secondPlayerScore > 21)
     {
+        // 플레이어 1의 스코어가 21이 넘은 경우
         if (firstPlayerScore > 21)
         {
             return "Player 1 Lose, By Bigger Than 21";
         }
+        // 플레이어 2의 스코어가 21이 넘은 경우
         else
         {
             return "Plyaer 2 Lose, By Bigger Than 21";
@@ -119,22 +122,30 @@ string Func_Calc_BlackJack_Winner(Player *player1, Player *player2)
 
 int main()
 {
-    srand(time(NULL)); // 시드 값 설정
+    srand(time(NULL));
 
+    // 컴퓨터 플레이어
     Player *computer = new Player();
+    // 유저 플레이어
     Player *user = new Player();
 
+    // 컴퓨터 카드 발급
     Func_Get_Card(computer);
+    // 유저 카드 발급
     Func_Get_Card(user);
 
+    // 컴퓨터 카드, 스코어 출력
     cout << computer->GetCards() << endl;
     cout << computer->GetScore() << endl;
 
+    // 유저 카드, 스코어 출력
     cout << user->GetCards() << endl;
     cout << user->GetScore() << endl;
 
+    // 승자 출력
     cout << Func_Calc_BlackJack_Winner(computer, user);
 
+    // 해제
     delete computer;
     delete user;
 
