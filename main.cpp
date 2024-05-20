@@ -121,20 +121,22 @@ int main()
 {
     srand(time(NULL)); // 시드 값 설정
 
-    Player computer = Player();
-    Player user = Player();
+    Player *computer = new Player();
+    Player *user = new Player();
 
-    Func_Get_Card(&computer);
-    Func_Get_Card(&user);
+    Func_Get_Card(computer);
+    Func_Get_Card(user);
 
-    cout << computer.GetCards() << endl;
-    cout << computer.GetScore() << endl;
+    cout << computer->GetCards() << endl;
+    cout << computer->GetScore() << endl;
 
-    cout << user.GetCards() << endl;
-    cout << user.GetScore() << endl;
+    cout << user->GetCards() << endl;
+    cout << user->GetScore() << endl;
 
-    cout << Func_Calc_BlackJack_Winner(&computer, &user);
-    // cout << "User Cards: ";
+    cout << Func_Calc_BlackJack_Winner(computer, user);
+
+    delete computer;
+    delete user;
 
     return 0;
 }
