@@ -5,10 +5,13 @@
 
 using namespace std;
 
+// 플레이어 클래스
 class Player
 {
   private:
+    // 보유 카드
     string Cards[2] = {};
+    // 점수
     int Score = 0;
 
   public:
@@ -16,6 +19,7 @@ class Player
     {
     }
 
+    // 플레이어 카드 Set 메소드
     Player SetCard(string card, int index)
     {
         if (index >= 0 && index < 2)
@@ -25,16 +29,19 @@ class Player
         return *this;
     }
 
+    // 플레이어 점수 Set 메소드
     void SetScore(int score)
     {
         Score += score;
     }
 
+    // 플레이어 점수 Get 메소드
     int GetScore()
     {
         return this->Score;
     }
 
+    // 플레이어 카드 Get 메소드
     string GetCards()
     {
         return this->Cards[0] + ", " + this->Cards[1];
@@ -122,6 +129,7 @@ string Func_Calc_BlackJack_Winner(Player *player1, Player *player2)
 
 int main()
 {
+    // 난수 랜덤화
     srand(time(NULL));
 
     // 컴퓨터 플레이어
