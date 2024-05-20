@@ -99,12 +99,12 @@ string Func_Calc_BlackJack_Winner(Player *player1, Player *player2)
             return to_string(firstPlayerScore) + " < " + to_string(secondPlayerScore) + " = Winner is Player2";
         }
     }
-
     // 둘다 21 넘는 경우
     else if (firstPlayerScore > 21 && secondPlayerScore > 21)
     {
         return "Both Player Lose By Bigger Than 21";
     }
+    // 한쪽만 21 넘는 경우
     else if (firstPlayerScore > 21 || secondPlayerScore > 21)
     {
         if (firstPlayerScore > 21)
@@ -116,7 +116,6 @@ string Func_Calc_BlackJack_Winner(Player *player1, Player *player2)
             return "Plyaer 2 Lose, By Bigger Than 21";
         }
     }
-    // 한쪽이 21을 넘긴 경우
 }
 
 int main()
